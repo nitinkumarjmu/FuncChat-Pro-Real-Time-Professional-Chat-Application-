@@ -5,15 +5,15 @@
 
 | Feature |
 ---
-| P2P messaging | Yes | Yes (unchanged) |
-| Group chat rooms | No | Yes |
-| Typing indicators | No | Yes (debounced, auto-stop) |
-| File sharing | No | Yes (S3, 5 MB, pre-signed URLs) |
-| Message search | No | Yes (full-text, server-side) |
-| Admin controls | No | Yes (remove, promote) |
-| Bot/webhook connector | No | Yes (HTTP POST → room) |
-| Online/offline presence | Yes | Yes (enhanced for rooms) |
-| Message history | Yes | Yes (P2P + group) |
+| P2P messaging |
+| Group chat rooms |
+| Typing indicators |
+| File sharing |Yes (S3, 5 MB, pre-signed URLs) |
+| Message search |Yes (full-text, server-side) |
+| Admin controls |Yes (remove, promote) |
+| Bot/webhook connector |Yes (HTTP POST → room) |
+| Online/offline presence |Yes (enhanced for rooms) |
+| Message history | Yes (P2P + group) |
 
 ---
 
