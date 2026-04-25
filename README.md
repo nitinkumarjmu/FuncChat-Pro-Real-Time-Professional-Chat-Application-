@@ -4,7 +4,7 @@
 ## What's in FuncChat Pro?
 
 | Feature |
-|---|---|---|
+---
 | P2P messaging | Yes | Yes (unchanged) |
 | Group chat rooms | No | Yes |
 | Typing indicators | No | Yes (debounced, auto-stop) |
