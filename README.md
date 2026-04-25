@@ -1,11 +1,9 @@
-# FuncChat Pro — Phase 2 Enhancement
-### Functional Programming in Java | Course 23CSH-312
-
+# FuncChat Pro 
+### Functional Programming in Java 
 ---
+## What's in FuncChat Pro?
 
-## What's new in Phase 2
-
-| Feature | Phase 1 | Phase 2 |
+| Feature |
 |---|---|---|
 | P2P messaging | Yes | Yes (unchanged) |
 | Group chat rooms | No | Yes |
@@ -77,30 +75,6 @@ FuncChatPro/
 
 ---
 
-## Functional programming concepts (CO mapping)
-
-| FP Concept | Where | CO |
-|---|---|---|
-| Immutability | Message, Room, User — all fields final | CO1 |
-| Pure functions | buildConversationId, SANITISE, resolveContentType | CO1 |
-| Lambda expressions | All ActionListeners, stream ops, shutdown hook | CO2 |
-| Predicate<T> | VALID_MESSAGE, IS_MEMBER, WITHIN_SIZE_LIMIT, ALLOWED_TYPE | CO2 |
-| Function<T,R> | MARK_DELIVERED, MARK_READ, NORMALISE_EMAIL | CO2 |
-| UnaryOperator<T> | SANITISE (Message → Message) | CO2 |
-| BiPredicate<T,U> | CAN_MANAGE(uid, room), CAN_WRITE(uid, room) | CO2 |
-| Consumer<T> | broadcastToRoom(roomId, uid, Consumer<Channel>) | CO2 |
-| Supplier<T> | orElseGet(defaultMsg supplier) in tests | CO2 |
-| Predicate composition | HAS_CONTENT.and(NOT_TOO_LONG).and(IS_TEXT) | CO3 |
-| Predicate.negate() | IS_OFFLINE = IS_ONLINE.negate() | CO3 |
-| Function.andThen() | SANITISE.andThen(MARK_DELIVERED) | CO3 |
-| Optional<T> | getFileUrl(), getConversationId(), getSession() | CO4 |
-| Dispatch table | Map<Action, BiConsumer<Channel, ChatFrame>> | CO4 |
-| Stream API | fetchAllRooms, searchMessages, getRoomsForUser | CO5 |
-| CompletableFuture | login, sendMessage, upload, joinRoom, all DB ops | CO5 |
-| Method references | Objects::nonNull, Channel::isActive, Room::of | CO2 |
-
----
-
 ## Setup instructions
 
 ### 1. Firebase (free Spark plan)
@@ -121,7 +95,6 @@ FuncChatPro/
 
 ```bash
 cp .env.template .env
-# Edit .env with your Firebase and AWS values
 ```
 
 ### 4. Build
@@ -174,7 +147,7 @@ The message appears in the room as a bot notification (blue highlight, mono font
 
 ---
 
-## Firebase database schema (Phase 2)
+## Firebase database schema 
 
 ```
 funcchat-db/
@@ -199,22 +172,3 @@ funcchat-db/
     ├── isTyping: true
     └── since: timestamp
 ```
-
----
-
-## AWS deployment (one-command after initial setup)
-
-```bash
-git push origin main   # GitHub Actions handles the rest
-```
-
-GitHub Actions will:
-1. Run all 40+ unit tests
-2. Build the fat JAR
-3. Build and push Docker image to ECR
-4. SSH into EC2 and restart the container
-
----
-
-*FuncChat Pro — Phase 2 | 23CSH-312 Functional Programming in Java*
-*Chandigarh University — University Institute of Engineering*
