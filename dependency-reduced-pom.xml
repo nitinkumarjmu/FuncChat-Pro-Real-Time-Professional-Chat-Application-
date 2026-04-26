@@ -74,13 +74,13 @@
     </dependency>
   </dependencies>
   <properties>
-    <netty.version>4.1.100.Final</netty.version>
-    <maven.compiler.source>17</maven.compiler.source>
-    <aws.sdk.version>2.25.0</aws.sdk.version>
-    <jackson.version>2.15.3</jackson.version>
     <maven.compiler.target>17</maven.compiler.target>
+    <netty.version>4.1.100.Final</netty.version>
     <okhttp.version>4.11.0</okhttp.version>
     <slf4j.version>2.0.9</slf4j.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <aws.sdk.version>2.25.0</aws.sdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jackson.version>2.15.3</jackson.version>
   </properties>
 </project>
