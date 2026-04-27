@@ -77,33 +77,20 @@ FuncChatPro/
 
 ## Setup instructions
 
-### 1. Firebase (free Spark plan)
 
-1. Go to console.firebase.google.com → Add project → name it `funcchat-pro`
-2. Build → Realtime Database → Create database → Start in test mode
-3. Build → Authentication → Get started → Enable Email/Password
-4. Project Settings → General → copy Web API Key and Project ID
-
-### 2. AWS S3 (file sharing)
-
-1. AWS Console → S3 → Create bucket → name: `funcchat-files`
-2. Block all public access: ON (files delivered via pre-signed URLs only)
-3. AWS Console → IAM → Create user → attach `AmazonS3FullAccess`
-4. Create access keys for that user
-
-### 3. Configure .env
+### 1. Configure .env
 
 ```bash
 cp .env.template .env
 ```
 
-### 4. Build
+### 2. Build
 
 ```bash
 mvn clean package -DskipTests
 ```
 
-### 5. Run server
+### 3. Run server
 
 ```bash
 java -jar target/funcchat-pro-server.jar
@@ -113,7 +100,7 @@ Server starts on:
 - WebSocket: `ws://localhost:8080/ws`
 - Webhook:   `http://localhost:8081/webhook/{roomId}`
 
-### 6. Run clients (two terminals)
+### 4. Run clients (two terminals)
 
 ```bash
 # Terminal 1
@@ -123,7 +110,7 @@ mvn exec:java -Dexec.mainClass="com.chatapp.ui.ChatClientUI"
 mvn exec:java -Dexec.mainClass="com.chatapp.ui.ChatClientUI"
 ```
 
-### 7. Run tests (fully offline, no Firebase or AWS needed)
+### 5. Run tests (fully offline, no Firebase or AWS needed)
 
 ```bash
 mvn test
@@ -143,19 +130,16 @@ curl -X POST http://localhost:8081/webhook/YOUR_ROOM_ID \
   -d '{"text": "Build #42 passed in 2m 15s", "source": "GitHub Actions"}'
 ```
 
-The message appears in the room as a bot notification (blue highlight, mono font).
-
----
 
 ## Firebase database schema 
 
 ```
 funcchat-db/
-├── users/{uid}/                    ← User profiles (unchanged from Phase 1)
+├── users/{uid}/                    ← User profiles 
 │   ├── uid, email, displayName
 │   ├── online, lastSeen
 │
-├── conversations/{convoId}/        ← P2P messages (unchanged)
+├── conversations/{convoId}/        ← P2P messages 
 │   └── messages/{msgId}/
 │
 ├── rooms/{roomId}/                 ← NEW — Group rooms
@@ -168,7 +152,7 @@ funcchat-db/
 │       ├── fileUrl, fileName, fileSize
 │       └── readBy: { uid: true }
 │
-└── typing/{roomId}/{uid}/          ← NEW — Typing state (ephemeral)
+└── typing/{roomId}/{uid}/          ← Typing state
     ├── isTyping: true
     └── since: timestamp
 ```
