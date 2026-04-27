@@ -37,7 +37,7 @@
 ```
 FuncChatPro/
 ├── Dockerfile
-├── .env.template              ← Copy to .env
+├── .env.template              
 ├── .gitignore
 ├── .github/workflows/
 │   └── deploy.yml             ← GitHub Actions CI/CD
@@ -62,7 +62,7 @@ FuncChatPro/
     │   │   ├── FileShareService.java    ← NEW — S3 upload + pre-signed URLs
     │   │   └── RoleAccessService.java   ← NEW — BiPredicate permission checks
     │   ├── handler/
-    │   │   └── WebSocketFrameHandler.java ← Dispatch table (13 actions)
+    │   │   └── WebSocketFrameHandler.java ← Dispatch table 
     │   ├── webhook/
     │   │   └── BotWebhookServer.java    ← NEW — HTTP bot integration endpoint
     │   └── ui/
